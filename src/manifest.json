@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "MyFallTraining",
+  "short_name": "MyFallTraining",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
