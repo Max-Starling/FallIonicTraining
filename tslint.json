@@ -1,11 +1,10 @@
 {
+  "extends": "tslint-config-airbnb",
   "rules": {
     "no-duplicate-variable": true,
     "no-unused-variable": [
       true
-    ]
-  },
-  "rulesDirectory": [
-    "node_modules/tslint-eslint-rules/dist/rules"
-  ]
+    ],
+    "ter-indent": [true, 4]
+  }
 }
