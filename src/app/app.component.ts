@@ -5,12 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { SettingsPage } from '../pages/settings/settings';
 
 @Component({
-    templateUrl: 'app.html',
+    templateUrl: 'app.compoent.html',
+    styleUrls: ['app.component.scss'],
 })
 // tslint:disable:ter-indent
-export class MyFallTraining {
+export class AppComponent {
     @ViewChild(Nav) nav: Nav;
     rootPage: any = HomePage;
     pages: Array<{ title: string, component: any }>;
@@ -22,6 +24,7 @@ export class MyFallTraining {
         this.pages = [
             { title: 'Home', component: HomePage },
             { title: 'List', component: ListPage },
+            { title: 'Settings', component: SettingsPage },
         ];
     }
 
