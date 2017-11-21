@@ -8,8 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { SettingsPage } from '../pages/settings/settings';
 
 @Component({
-    templateUrl: 'app.compoent.html',
-    styleUrls: ['app.component.scss'],
+    templateUrl: 'app.component.html',
 })
 // tslint:disable:ter-indent
 export class AppComponent {
