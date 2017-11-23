@@ -1,8 +1,8 @@
 # My fall'17 mobile training with Ionic & Angular #
 ### Ionic link: https://dashboard.ionicjs.com/app/ccdcf8f7 ###
-### Apk link: MyFallTraining/platforms/android/build/outputs/apk/android-debug.apk ###
+### Apk path: ../platforms/android/build/outputs/apk/android-debug.apk ###
 
-## Nov, 24| Snapshot #1 ##
+## Nov, 24 | Snapshot #1 ##
 Now app has menu and 3 pages(home, list, settings). 
 It's linked with github.com and ionicframework.com. 
 Today this app can be launched in three ways:
