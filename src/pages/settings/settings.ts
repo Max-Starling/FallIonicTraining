@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 
 @Component({
     selector: 'page-settings',
@@ -7,7 +7,17 @@ import { NavController } from 'ionic-angular';
 })
 // tslint:disable:ter-indent
 export class SettingsPage {
-    constructor(public navCtrl: NavController) {
+    constructor(private navCtrl: NavController, private alertCtrl: AlertController) {
 
     }
+
+    presentAlert(event) {
+        let alert = this.alertCtrl.create({
+          title: 'Oops!',
+          subTitle: 'Sorry, this function is not available yet.',
+          buttons: ['No problem']
+        });
+        alert.present();
+    }
 }
+

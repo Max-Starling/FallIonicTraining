@@ -3,6 +3,28 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Settings</ion-title>
+        <ion-title>
+            <ion-icon name="settings"></ion-icon>Settings
+        </ion-title>
     </ion-navbar>
 </ion-header>
+
+<ion-content padding>
+    <h3> Select language: </h3>
+    <ion-item>
+        <ion-label>English</ion-label>
+        <ion-checkbox color="light" checked="true"></ion-checkbox>
+    </ion-item>
+    <ion-item (click)="presentAlert($event)">
+        <ion-label>Russian</ion-label>
+        <ion-checkbox color="danger" checked="false" disabled="true"></ion-checkbox>
+    </ion-item>
+    <ion-item (click)="presentAlert($event)">
+        <ion-label>Deutsch</ion-label>
+        <ion-checkbox color="danger" checked="false" disabled="true"></ion-checkbox>
+    </ion-item>
+    <ion-item (click)="presentAlert($event)">
+        <ion-label>French</ion-label>
+        <ion-checkbox color="danger" checked="false" disabled="true"></ion-checkbox>
+    </ion-item>
+</ion-content>

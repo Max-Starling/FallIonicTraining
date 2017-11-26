@@ -1,3 +1,11 @@
-page-list {
+.list-button {
+    background: color($colors, grayr);
+}
 
+.list-button ion-icon, .list-button item-start{
+    color: color($colors, light);
+
+}
+.item-note {
+    color: color($colors, light);
 }

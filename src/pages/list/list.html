@@ -9,16 +9,19 @@
 
 <ion-content>
     <ion-list>
-        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+        <button class="list-button" ion-item *ngFor="let item of items" (click)="itemTapped($event, item)" margin-bottom outline>
             <ion-icon [name]="item.icon" item-start></ion-icon>
-            {{item.title}}
-            <div class="item-note" item-end>
+            <div class="list-button-title" class="item-note" item>
+                {{item.title}}
+            </div>
+            <div class="list-button-note" class="item-note" item-end>
                 {{item.note}}
             </div>
         </button>
     </ion-list>
-    <div *ngIf="selectedItem" padding>
-        You navigated here from
+    <div *ngIf="selectedItem" padding>You navigated here from
         <b>{{selectedItem.title}}</b>
     </div>
 </ion-content>
+<!-- (click)="itemTapped($event, item)" -->
+<!-- [navPush]="ListItemPage" -->

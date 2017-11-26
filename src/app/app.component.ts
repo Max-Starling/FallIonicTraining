@@ -1,11 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
+import { TranslateService } from 'ng2-translate';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SettingsPage } from '../pages/settings/settings';
+import { AboutPage } from '../pages/about/about';
 
 @Component({
     templateUrl: 'app.component.html',
@@ -13,17 +15,20 @@ import { SettingsPage } from '../pages/settings/settings';
 // tslint:disable:ter-indent
 export class AppComponent {
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = HomePage;
+    rootPage: any = ListPage;
     pages: Array<{ title: string, component: any }>;
-    constructor(public platform: Platform,
-        public statusBar: StatusBar,
-        public splashScreen: SplashScreen) {
+    constructor(private platform: Platform,
+                private statusBar: StatusBar,
+                private splashScreen: SplashScreen,
+                private translate: TranslateService) {
         this.initializeApp();
-        // used for an example of ngFor and navigation
+        translate.setDefaultLang('en');
+        translate.use('en');
         this.pages = [
-            { title: 'Home', component: HomePage },
-            { title: 'List', component: ListPage },
+            // { title: 'Home', component: HomePage },
+            { title: 'News', component: ListPage },
             { title: 'Settings', component: SettingsPage },
+            { title: 'About', component: AboutPage },
         ];
     }
 
