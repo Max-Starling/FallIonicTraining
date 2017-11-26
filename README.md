@@ -1,7 +1,7 @@
 # My fall'17 mobile training with Ionic & Angular #
 ### Ionic link: https://dashboard.ionicjs.com/app/ccdcf8f7 ###
 ### npm link: https://www.npmjs.com/package/my-fall-training ###
-### apk path: ../platforms/android/build/outputs/apk/android-debug.apk ###
+### apk path: ../platforms/android/build/outputs/apk/<latest>.apk ###
 
 ## Nov, 24 | Snapshot #1 ##
 Now app has menu and 3 pages(home, list, settings). 

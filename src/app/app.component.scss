@@ -23,7 +23,6 @@
 }
 .content-md {
     background: url(../assets/imgs/wrapper.png);
-    // background-color: red;
 }
 
 .list-button  {
@@ -34,14 +33,29 @@
     background: #525252;
     opacity: 0.75;
     margin-bottom: 8px;
-    color: white;
+    color: color($colors, light);
+}
+.list-button:focus, .list-button:active {
+    background: #303030;
+}
+.item-block:focus, .item-block:active {
+    background: #303030;
 }
 
 .toolbar-background {
-    background: url(../assets/imgs/wrapper2.png);
+    background: url(../assets/imgs/wrapper4.png);
     // background: #525252;
 }
 
 h3 {
-    color: rgb(230, 230, 230);
+    color: color($colors, light);
+}
+
+p {
+    font-size: 2rem;
+    color: color($colors, light);
+}
+
+ion-searchbar {
+    opacity: 0.85;
 }

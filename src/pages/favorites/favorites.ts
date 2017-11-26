@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 import { App, NavController, NavParams } from 'ionic-angular';
 import { ListItemPage } from '../list-item/list-item';
-import { AddListItemPage } from '../add-list-item/add-list-item';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map'
 
 @Component({
-    selector: 'page-list',
-    templateUrl: 'list.html',
+    selector: 'page-favorites',
+    templateUrl: 'favorites.html',
 })
 // tslint:disable:ter-indent
-export class ListPage {
+export class FavoritesPage {
     private showingItems: Array<{
         title: string,
         summary: string,
@@ -24,7 +23,7 @@ export class ListPage {
     private searchValue: string;
     constructor(public navCtrl: NavController, public navParams: NavParams, private appControl: App, private http: Http) {
         this.showingItems = [];
-        this.http.get('assets/news.json')
+        this.http.get('assets/favorites.json')
             .map(res => res.json())
             .subscribe(data => {
                 this.data = data;
@@ -50,15 +49,12 @@ export class ListPage {
             content: i.content,
         });
     }
-    private addButtonTapped(event) {
-        this.navCtrl.push(AddListItemPage);
-    }
     private onSearchInput(event) {
         this.showingItems = [];
         const searchValue = this.searchValue;
         const showingItems = this.showingItems;
         this.storingItems.forEach(function (item, i, arr) {
-            if(item.title.toLowerCase().indexOf(searchValue.toLowerCase()) != -1) {
+            if(item.title.indexOf(searchValue) != -1) {
                 showingItems.push(item);
             }
         });

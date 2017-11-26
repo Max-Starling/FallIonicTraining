@@ -24,7 +24,14 @@ $app-direction: ltr;
 
 $img-placeholder-background : transparent;
 $content-margin: 8px;
-$content-border: 0px;
+$searchbar-md-input-background-color : #525252;
+$searchbar-md-input-text-color: #eeeeee;
+$searchbar-md-input-placeholder-color: #eeeeee;
+$searchbar-md-input-search-icon-color: #eeeeee;
+$text-input-highlight-color-valid: transparent;
+$text-input-highlight-color-valid: transparent;
+$text-input-md-input-clear-icon-color: #eeeeee;
+$text-input-md-highlight-color: transparent;
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -37,7 +44,7 @@ $colors: (
   primary:    #488aff,
   secondary:  #32db64,
   danger:     #7c0101,
-  light:      #f4f4f4,
+  light:      #eeeeee,
   dark:       #222,
   grayr:      #525252,
 );

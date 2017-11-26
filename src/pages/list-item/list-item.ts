@@ -6,9 +6,14 @@ import { NavController, NavParams } from 'ionic-angular';
     templateUrl: 'list-item.html',
 })
 export class ListItemPage {
-    private itemParams: any;
+    private itemTitle: any;
+    private item: any = [];
     constructor(private navParams: NavParams) {
-        this.itemParams = this.navParams.get('title');
-        console.log(this.itemParams);
+        this.item['title'] = this.navParams.get('title');
+        this.item['summary'] = this.navParams.get('summary');
+        this.item['date'] = this.navParams.get('date');
+        this.item['author'] = this.navParams.get('author');
+        this.item['content'] = this.navParams.get('content');
+        console.log(this.item);
     }
 }

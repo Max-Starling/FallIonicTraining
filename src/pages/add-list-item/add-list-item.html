@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Add article</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-input [(ngModel)]="titleValue" placeholder="Title" clearInput></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="contentValue" placeholder="Content" clearInput></ion-input>
+    </ion-item>
+    <button ion-button (click)="addButtonTapped($event, item)" margin-bottom></button>
+</ion-content>

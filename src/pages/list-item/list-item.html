@@ -3,12 +3,16 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>{{itemParams}}</ion-title>
+        <ion-title>{{item.title}}</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <div *ngIf="itemParams" padding>You navigated here from
-        <b>{{itemParams}}</b>
+    <div *ngIf="item" class="list-item-content-bg" padding>
+        <p>{{item.content}} </p>
+    </div>
+    <div *ngIf="item" class="list-item-content-bg" padding>
+        <p>{{item.date}} </p>
+        <p>{{item.author}} </p>
     </div>
 </ion-content>

@@ -8,7 +8,9 @@ import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-tra
 import { AppComponent } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { FavoritesPage } from '../pages/favorites/favorites';
 import { ListItemPage } from '../pages/list-item/list-item';
+import { AddListItemPage } from '../pages/add-list-item/add-list-item';
 import { SettingsPage } from '../pages/settings/settings';
 import { AboutPage } from '../pages/about/about';
 
@@ -48,8 +50,10 @@ export function createTranslateLoader(http: Http) {
         HomePage,
         ListPage,
         ListItemPage,
+        AddListItemPage,
         SettingsPage,
         AboutPage,
+        FavoritesPage,
     ],
     imports: [
         BrowserModule,
@@ -66,8 +70,10 @@ export function createTranslateLoader(http: Http) {
         HomePage,
         ListPage,
         ListItemPage,
+        AddListItemPage,
         SettingsPage,
         AboutPage,
+        FavoritesPage,
     ],
     providers: [
         StatusBar,

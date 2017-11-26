@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { FavoritesPage } from '../pages/favorites/favorites';
 import { SettingsPage } from '../pages/settings/settings';
 import { AboutPage } from '../pages/about/about';
 
@@ -16,19 +17,18 @@ import { AboutPage } from '../pages/about/about';
 export class AppComponent {
     @ViewChild(Nav) nav: Nav;
     rootPage: any = ListPage;
-    pages: Array<{ title: string, component: any }>;
+    pages: Array<{ title: string, icon: string, component: any }>;
     constructor(private platform: Platform,
                 private statusBar: StatusBar,
                 private splashScreen: SplashScreen,
                 private translate: TranslateService) {
         this.initializeApp();
-        translate.setDefaultLang('en');
-        translate.use('en');
         this.pages = [
             // { title: 'Home', component: HomePage },
-            { title: 'News', component: ListPage },
-            { title: 'Settings', component: SettingsPage },
-            { title: 'About', component: AboutPage },
+            { title: ' News', icon: 'images', component: ListPage },
+            { title: ' Favorites', icon: 'attach', component: FavoritesPage },
+            { title: ' Settings', icon: 'settings', component: SettingsPage },
+            { title: ' About', icon: 'alert', component: AboutPage },
         ];
     }
 
@@ -38,8 +38,9 @@ export class AppComponent {
             // Here you can do any higher level native things you might need.
             this.statusBar.styleDefault();
             this.splashScreen.hide();
-        },
-        );
+            this.translate.setDefaultLang('en');
+            this.translate.use('en');
+        });
     }
 
     openPage(page) {
