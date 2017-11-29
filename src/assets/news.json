@@ -3,7 +3,7 @@
         "title": "CHAPTER I",
         "summary": "Down the Rabbit-Hole",
         "icon": "snow",
-        "createdAt": "2017-01-05T00:00:00",
+        "creationDate": "2017-01-05T00:00:00",
         "author": "Lewis Carroll",
         "content": "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do:once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it,and what is the use of a book, thought Alice without pictures or conversation?"
     },
@@ -11,7 +11,7 @@
         "title": "CHAPTER II",
         "summary": "The Pool of Tears",
         "icon": "pizza",
-        "createdAt": "2017-01-10T01:01:01",
+        "creationDate": "2017-01-10T01:01:01",
         "author": "Lewis Carroll",
         "content": "Curiouser and curiouser! cried Alice (she was so much surprised, that for the moment she quite forgot how to speak good English; now I am opening out like the largest telescope that ever was!"
     },
@@ -19,7 +19,7 @@
         "title": "CHAPTER III",
         "summary": "A Caucus-Race and a Long Tale",
         "icon": "paper-plane",
-        "createdAt": "2017-01-15T02:02:02",
+        "creationDate": "2017-01-15T02:02:02",
         "author": "Lewis Carroll",
         "content": "They were indeed a queer-looking party that assembled on the bank—the birds with draggled feathers, the animals with their fur clinging close to them, and all dripping wet, cross, and uncomfortable."
     },
@@ -27,7 +27,7 @@
         "title": "CHAPTER IV",
         "summary": "The Rabbit Sends in a Little Bill",
         "icon": "bonfire",
-        "createdAt": "2017-01-18T03:03:03",
+        "creationDate": "2017-01-18T03:03:03",
         "author": "Lewis Carroll",
         "content": "It was the White Rabbit, trotting slowly back again, and looking anxiously about as it went, as if it had lost something; and she heard it muttering to itself."
     },
@@ -35,7 +35,7 @@
         "title": "CHAPTER V",
         "summary": "Advice from a Caterpillar",
         "icon": "bowtie",
-        "createdAt": "2017-01-21T05:05:05",
+        "creationDate": "2017-01-21T05:05:05",
         "author": "Lewis Carroll",
         "content": "The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a langu, sleepy voice."
     },
@@ -43,7 +43,7 @@
         "title": "CHAPTER VI",
         "summary": "Pig and Pepper",
         "icon": "clock",
-        "createdAt": "2017-01-26T06:06:06",
+        "creationDate": "2017-01-26T06:06:06",
         "author": "Lewis Carroll",
         "content": "The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a langu, sleepy voice.For a minute or two she stood looking at the house, and wondering what to do next, when suddenly a footman in livery came running out of the wood—(she consered him to be a footman because he was in livery: otherwise, judging by his face only, she would have called him a fish—and rapped loudly at the door with his knuckles."
     },
@@ -51,7 +51,7 @@
         "title": "CHAPTER VII",
         "summary": "A Mad Tea-Party",
         "icon": "cloudy-night",
-        "createdAt": "2017-01-31T07:07:07",
+        "creationDate": "2017-01-31T07:07:07",
         "author": "Lewis Carroll",
         "content": "There was a table set out under a tree in front of the house, and the March Hare and the Hatter were having tea at it: a Dormouse was sitting between them, fast asleep, and the other two were using it as a cushion, resting their elbows on it, and talking over its head."
     },
@@ -59,7 +59,7 @@
         "title": "CHAPTER VIII",
         "summary": "The Queens Croquet-Ground",
         "icon": "cog",
-        "createdAt": "2017-02-02T08:08:08",
+        "creationDate": "2017-02-02T08:08:08",
         "author": "Lewis Carroll",
         "content": "A large rose-tree stood near the entrance of the garden: the roses growing on it were white, but there were three gardeners at it, busily painting them red."
     },
@@ -67,7 +67,7 @@
         "title": "CHAPTER IX",
         "summary": "The Mock Turtles Story",
         "icon": "compass",
-        "createdAt": "2017-02-07T09:09:09",
+        "creationDate": "2017-02-07T09:09:09",
         "author": "Lewis Carroll",
         "content": "You cant think how glad I am to see you again, you dear old thing! said the Duchess, as she tucked her arm affectionately into Alices, and they walked off together."
     },
@@ -75,7 +75,7 @@
         "title": "CHAPTER X",
         "summary": "The Lobster Quadrille",
         "icon": "flask",
-        "createdAt": "2017-02-14T10:10:10",
+        "creationDate": "2017-02-14T10:10:10",
         "author": "Lewis Carroll",
         "content": "The Mock Turtle sighed deeply, and drew the back of one flapper across his eyes. He looked at Alice, and tried to speak, but for a minute or two sobs choked his voice."
     },
@@ -83,7 +83,7 @@
         "title": "CHAPTER XI",
         "summary": "Who Stole the Tarts?",
         "icon": "leaf",
-        "createdAt": "2017-02-17T11:11:11",
+        "creationDate": "2017-02-17T11:11:11",
         "author": "Lewis Carroll",
         "content": "The King and Queen of Hearts were seated on their throne when they arrived, with a great crowd assembled about them—all sorts of little birds and beasts, as well as the whole pack of cards: the Knave was standing before them, in chains, with a soldier on each side to guard him; and near the King was the White Rabbit, with a trumpet in one hand, them—all sorts of little birds and beasts, as well as the whole pack of cards: the Knave was standing before them, in chains, with a soldier on each side to guard him; and near the King was the White Rabbit, with a trumpet in one hand, and a scroll of parchment in the other.The King and Queen of Hearts were seated on their throne when they arrived, with a great crowd assembled about them—all sorts of little birds and beasts, as well as the whole pack of cards: the Knave was standing before them, in chains, with a soldier on each side to guard him; and near the King was the White Rabbit, with a trumpet in one hand, and a scroll of parchment in the other."
     },
@@ -91,7 +91,7 @@
         "title": "CHAPTER XII",
         "summary": "Alices Evidence",
         "icon": "nutrition",
-        "createdAt": "2017-02-18T12:12:12",
+        "creationDate": "2017-02-18T12:12:12",
         "author": "Lewis Carroll",
         "content": "Here! cried Alice, quite forgetting in the flurry of the moment how large she had grown in the last few minutes, and she jumped up in such a hurry that she tipped over the jury-box with the edge of her skirt, upsetting all the jurymen on to the heads of the crowd below, and there they lay sprawling about, reminding her very much of a globe of goldfish she had accidentally upset the week before."
     }

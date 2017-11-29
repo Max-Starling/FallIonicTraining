@@ -17,7 +17,7 @@ export class ListPage {
     private showingItems: Array<{
         title: string,
         icon: string,
-        date: string,
+        creationDate: string,
         formattedDate: string,
         author: string,
         content: string,
@@ -27,36 +27,13 @@ export class ListPage {
     private searchValue: string;
     constructor(public navCtrl: NavController, public navParams: NavParams, private appControl: App, private http: Http, private storage: Storage, private transferService: SubjectTransferService, private dateFormatterService: DateFormatterService) {
         this.showingItems = [];
-        this.http.get('assets/news.json')
-            .map(res => res.json())
-            .subscribe(data => {
-                this.news = data;
-                for (let i = 0; i < this.news.length; i++) {
-                    this.showingItems.push({
-                        title: this.news[i].title,
-                        icon: this.news[i].icon,
-                        date: this.news[i].createdAt,
-                        formattedDate: '',
-                        author: this.news[i].author,
-                        content: this.news[i].content,
-                    });
+        this.storage.ready().then(() => {
+            this.storage.get('news').then((data) => {
+                if (data) {
+                    this.showingItems = data;
+                    this.storingItems = this.showingItems;
+                    console.log('if');
                 }
-                this.showingItems.forEach((item) => {
-                    item.formattedDate = this.dateFormatterService.formatDate(item.date);
-                })
-                console.log(this.showingItems);
-                this.storingItems = this.showingItems;
-                this.storage.ready().then(() => {
-                    this.storage.set('news', this.showingItems);
-                });
-                this.storage.ready().then(() => {
-                    this.storage.get('news').then((data) => {
-                        if (data) {
-                            this.showingItems = data;
-                            this.storingItems = this.showingItems;
-                        }
-                    });
-                });
                 transferService.getData().subscribe((data) => {
                     if (data.type == "news") {
                         this.showingItems = data.options;
@@ -64,12 +41,14 @@ export class ListPage {
                     }
                 });
             });
+        });
     }
     private itemTapped(event, i) {
+        console.log(i.creationDate);
         this.navCtrl.push(ListItemPage, {
             title: i.title,
             icon: i.icon,
-            date: i.date,
+            creationDate: i.creationDate,
             formattedDate: i.formattedDate,
             author: i.author,
             content: i.content,
@@ -87,7 +66,6 @@ export class ListPage {
                 showingItems.push(item);
             }
         });
-
     }
     private onSearchCancel(event) {
         this.showingItems = this.storingItems;

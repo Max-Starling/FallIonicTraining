@@ -22,7 +22,7 @@ import { SubjectTransferService } from '../services/subject-transfer.service';
 import { DateFormatterService } from '../services/date-formatter.service';
 
 const IonicPro = Pro.init('ccdcf8f7', {
-    appVersion: "0.7.0"
+    appVersion: "0.9.0"
 });
 
 @Injectable()
