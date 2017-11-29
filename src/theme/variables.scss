@@ -4,13 +4,17 @@
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
+// @font-face {
+//     font-family: "Roboto Slab";
+//     src: url(../assets/fonts/RobotoSlab-Light.ttf) format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
 
 @import "ionic.globals";
 
@@ -28,10 +32,20 @@ $searchbar-md-input-background-color : #525252;
 $searchbar-md-input-text-color: #eeeeee;
 $searchbar-md-input-placeholder-color: #eeeeee;
 $searchbar-md-input-search-icon-color: #eeeeee;
+$searchbar-md-input-clear-icon-color: #eeeeee;
 $text-input-highlight-color-valid: transparent;
 $text-input-highlight-color-valid: transparent;
 $text-input-md-input-clear-icon-color: #eeeeee;
 $text-input-md-highlight-color: transparent;
+$badge-md-background-color: #222;
+$badge-md-text-color: #eeeeee;
+$badge-font-size: 1.8rem;
+$button-md-background-color: transparent;
+$button-md-background-color-activated: #222;
+$button-md-outline-background-color-hover: transparent;
+$button-md-clear-background-color-activated: #222;
+// $button-md-box-shadow: none;
+
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.

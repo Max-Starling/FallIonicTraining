@@ -42,7 +42,11 @@
     background: #303030;
 }
 
-.toolbar-background {
+.item-block:focus, .item-block:active {
+    background: #303030;
+}
+
+ion-header .toolbar-background {
     background: url(../assets/imgs/wrapper4.png);
     // background: #525252;
 }
@@ -58,4 +62,9 @@ p {
 
 ion-searchbar {
     opacity: 0.85;
+}
+
+.item-md.activated {
+    background-color: color($colors, dark);
+    // background-color: transparent;
 }

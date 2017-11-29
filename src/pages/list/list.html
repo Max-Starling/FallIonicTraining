@@ -3,13 +3,17 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title (click)="addButtonTapped($event)">News</ion-title>
-        <!-- <ion-icon name="add-circle"></ion-icon> -->
+        <button class="list-button-news" ion-item>
+                <ion-title>{{ 'NEWS' | translate }}</ion-title>
+            <button ion-button item-only item-end (click)="addButtonTapped($event)">
+                <ion-icon name="add-circle"></ion-icon>
+            </button>
+        </button>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-searchbar [(ngModel)]="searchValue" placeholder="Search by title..." [showCancelButton]="shouldShowCancel" (ionInput)="onSearchInput($event)"
+    <ion-searchbar [(ngModel)]="searchValue" [placeholder]="'SEARCH_BY_TITLE' | translate" [showCancelButton]="shouldShowCancel" (ionInput)="onSearchInput($event)"
         (ionCancel)="onSearchCancel($event)" margin-bottom>
     </ion-searchbar>
     <ion-list>
@@ -19,10 +23,8 @@
                 {{item.title}}
             </div>
             <div class="list-button-note" class="item-note" item-end>
-                {{item.date}}
+                {{item.formattedDate}}
             </div>
         </button>
     </ion-list>
 </ion-content>
-<!-- (click)="itemTapped($event, item)" -->
-<!-- [navPush]="ListItemPage" -->

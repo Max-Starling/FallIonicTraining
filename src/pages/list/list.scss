@@ -9,3 +9,33 @@
 .item-note {
     color: color($colors, light);
 }
+
+.list-button-news {
+    background: transparent;
+}
+
+.list-button-news.item-md {
+   background-color: transparent;
+}
+.list-button-news.item-md.activated {
+   background-color: transparent;
+}
+
+.list-button-news.item-block {
+   margin-bottom: 0px;
+}
+.list-button-news .item-button{
+   box-shadow: none;
+   color: color($colors, grayr);
+   font-size: 2rem;
+}
+
+.list-button-news .item-button.activated{
+   box-shadow: none;
+   color: color($colors, dark);
+   background-color: transparent;
+}
+
+.list-button-news .item-button:hover {
+    color: rgb(116, 116, 116);
+}

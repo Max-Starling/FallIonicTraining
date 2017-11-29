@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-import { TranslateService } from 'ng2-translate';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { SettingsPage } from '../pages/settings/settings';
@@ -16,20 +15,34 @@ import { AboutPage } from '../pages/about/about';
 // tslint:disable:ter-indent
 export class AppComponent {
     @ViewChild(Nav) nav: Nav;
-    rootPage: any = ListPage;
-    pages: Array<{ title: string, icon: string, component: any }>;
+    private rootPage: any = ListPage;
+    private newsTitle: string;
+    private favoritesTitle: string;
+    private settingsTitle: string;
+    private aboutTitle: string;
+    private pages: Array<{ title: string, icon: string, component: any }>;
     constructor(private platform: Platform,
-                private statusBar: StatusBar,
-                private splashScreen: SplashScreen,
-                private translate: TranslateService) {
+        private statusBar: StatusBar,
+        private splashScreen: SplashScreen,
+        private translateService: TranslateService
+    ) {
         this.initializeApp();
+        this.translateService.setDefaultLang('en');
+        this.translateService.use('en')
         this.pages = [
-            // { title: 'Home', component: HomePage },
-            { title: ' News', icon: 'images', component: ListPage },
-            { title: ' Favorites', icon: 'attach', component: FavoritesPage },
-            { title: ' Settings', icon: 'settings', component: SettingsPage },
-            { title: ' About', icon: 'alert', component: AboutPage },
+            { title: 'NEWS', icon: 'images', component: ListPage },
+            { title: 'FAVORITES', icon: 'attach', component: FavoritesPage },
+            { title: 'SETTINGS', icon: 'settings', component: SettingsPage },
+            { title: 'ABOUT', icon: 'alert', component: AboutPage },
         ];
+        // this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+        //     this.pages = [
+        //         { title: 'NEWS', icon: 'images', component: ListPage },
+        //         { title: 'FAVORITES', icon: 'attach', component: FavoritesPage },
+        //         { title: 'SETTINGS', icon: 'settings', component: SettingsPage },
+        //         { title: 'ABOUT', icon: 'alert', component: AboutPage },
+        //     ];
+        //   });
     }
 
     initializeApp() {
@@ -38,8 +51,8 @@ export class AppComponent {
             // Here you can do any higher level native things you might need.
             this.statusBar.styleDefault();
             this.splashScreen.hide();
-            this.translate.setDefaultLang('en');
-            this.translate.use('en');
+            // this.translate.setDefaultLang('en');
+            // this.translate.use('en');
         });
     }
 

@@ -1,0 +1,19 @@
+{
+    "MENU": "Menu",
+    "NEWS": "News",
+    "ADD_ARTICLE": "Add article",
+    "HOME": "Home",
+    "ABOUT": "About",
+    "FAVORITES": "Favorites",
+    "SETTINGS": "Settings",
+    "ENGLISH": "English",
+    "RUSSIAN": "Russian",
+    "DEUTSCH": "Deutsh",
+    "FRENCH": "French",
+    "SELECT_LANGUAGE": "Select language",
+    "SUBMIT": "Submit",
+    "TITLE": "Title",
+    "CONTENT": "Content",
+    "CHOOSE_ICON": "Choose icon",
+    "SEARCH_BY_TITLE": "Search by title"
+}

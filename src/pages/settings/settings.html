@@ -4,27 +4,18 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>
-            <ion-icon name="settings"></ion-icon>Settings
+            <ion-icon name="settings"></ion-icon>{{ 'SETTINGS' | translate }}
         </ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <h3> Select language: </h3>
-    <ion-item>
-        <ion-label>English</ion-label>
-        <ion-checkbox color="light" checked="true"></ion-checkbox>
-    </ion-item>
-    <ion-item (click)="presentAlert($event)">
-        <ion-label>Russian</ion-label>
-        <ion-checkbox color="danger" checked="false" disabled="true"></ion-checkbox>
-    </ion-item>
-    <ion-item (click)="presentAlert($event)">
-        <ion-label>Deutsch</ion-label>
-        <ion-checkbox color="danger" checked="false" disabled="true"></ion-checkbox>
-    </ion-item>
-    <ion-item (click)="presentAlert($event)">
-        <ion-label>French</ion-label>
-        <ion-checkbox color="danger" checked="false" disabled="true"></ion-checkbox>
+    <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon [name]="p.icon"></ion-icon> {{ p.title | translate}}
+    </button>
+    <h3> {{ 'SELECT_LANGUAGE' | translate }}: </h3>
+    <ion-item (click)="setLanguage($event, l)" *ngFor="let l of languages">
+        <ion-label>{{ l.name | translate }}</ion-label>
+        <ion-checkbox color="light" [checked]="l.checked" disabled="true"></ion-checkbox>
     </ion-item>
 </ion-content>

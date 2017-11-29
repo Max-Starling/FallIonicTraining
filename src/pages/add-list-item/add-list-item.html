@@ -3,16 +3,25 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Add article</ion-title>
+        <ion-title>{{ 'ADD_ARTICLE' | translate }}</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
     <ion-item>
-        <ion-input [(ngModel)]="titleValue" placeholder="Title" clearInput></ion-input>
+        <ion-input [(ngModel)]="titleValue" [placeholder]="'TITLE' | translate" clearInput></ion-input>
     </ion-item>
     <ion-item>
-        <ion-input [(ngModel)]="contentValue" placeholder="Content" clearInput></ion-input>
+        <ion-label>{{ 'CHOOSE_ICON' | translate }}</ion-label>
+        <ion-select #sectionSelect [(ngModel)]="iconValue">
+            <!-- <ion-option value="0" selected="true">None</ion-option> -->
+            <ion-option *ngFor="let icon of icons" [value]="icon">{{icon}} </ion-option>
+        </ion-select>
     </ion-item>
-    <button ion-button (click)="addButtonTapped($event, item)" margin-bottom></button>
+    <ion-item>
+        <ion-input [(ngModel)]="contentValue" [placeholder]="'CONTENT' | translate" clearInput></ion-input>
+    </ion-item>
+    <ion-row justify-content-center>
+        <button class="submit-button" ion-button (click)="addButtonTapped($event, item)" margin-bottom>{{ 'SUBMIT' | translate }}</button>
+    </ion-row>
 </ion-content>

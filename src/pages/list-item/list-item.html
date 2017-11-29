@@ -8,11 +8,18 @@
 </ion-header>
 
 <ion-content>
+    <ion-row justify-content-end margin-top margin-bottom>
+        <ion-icon class="list-item-icons" name="heart" margin-right (click)="favButtonTapped($event)"></ion-icon>
+        <ion-icon class="list-item-icons" name="create" margin-right (click)="editButtonTapped($event)"></ion-icon>
+        <ion-icon class="list-item-icons" name="close" margin-right (click)="deleteButtonTapped($event)"></ion-icon>
+    </ion-row>
     <div *ngIf="item" class="list-item-content-bg" padding>
         <p>{{item.content}} </p>
     </div>
     <div *ngIf="item" class="list-item-content-bg" padding>
-        <p>{{item.date}} </p>
-        <p>{{item.author}} </p>
+        <ion-row justify-content-between>
+            <ion-badge>{{item.formattedDate}} </ion-badge>
+            <ion-badge>{{item.author}} </ion-badge>
+        </ion-row>
     </div>
 </ion-content>

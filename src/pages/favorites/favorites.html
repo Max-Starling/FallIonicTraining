@@ -3,12 +3,12 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Favorites</ion-title>
+        <ion-title>{{ 'FAVORITES' | translate }}</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-searchbar [(ngModel)]="searchValue" placeholder="Search by title..." [showCancelButton]="shouldShowCancel" (ionInput)="onSearchInput($event)"
+    <ion-searchbar [(ngModel)]="searchValue" [placeholder]="'SEARCH_BY_TITLE' | translate" [showCancelButton]="shouldShowCancel" (ionInput)="onSearchInput($event)"
         (ionCancel)="onSearchCancel($event)" margin-bottom>
     </ion-searchbar>
     <ion-list>
@@ -18,7 +18,7 @@
                 {{item.title}}
             </div>
             <div class="list-button-note" class="item-note" item-end>
-                {{item.date}}
+                {{item.formattedDate}}
             </div>
         </button>
     </ion-list>
