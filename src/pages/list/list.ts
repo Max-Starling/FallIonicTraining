@@ -34,17 +34,16 @@ export class ListPage {
                     this.storingItems = this.showingItems;
                     console.log('if');
                 }
-                transferService.getData().subscribe((data) => {
-                    if (data.type == "news") {
-                        this.showingItems = data.options;
-                        this.storingItems = this.showingItems;
-                    }
-                });
+            });
+            transferService.getData().subscribe((data) => {
+                if (data.type == "news") {
+                    this.showingItems = data.options;
+                    this.storingItems = this.showingItems;
+                }
             });
         });
     }
     private itemTapped(event, i) {
-        console.log(i.creationDate);
         this.navCtrl.push(ListItemPage, {
             title: i.title,
             icon: i.icon,

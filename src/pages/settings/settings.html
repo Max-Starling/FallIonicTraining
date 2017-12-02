@@ -4,16 +4,15 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>
-            <ion-icon name="settings"></ion-icon>{{ 'SETTINGS' | translate }}
+            <ion-icon name="settings"></ion-icon>
+            {{ 'SETTINGS' | translate }}
+            <!-- <ion-icon name="settings"></ion-icon> -->
         </ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon [name]="p.icon"></ion-icon> {{ p.title | translate}}
-    </button>
-    <h3> {{ 'SELECT_LANGUAGE' | translate }}: </h3>
+    <h3 class="select-language-text"> {{ 'SELECT_LANGUAGE' | translate }}: </h3>
     <ion-item (click)="setLanguage($event, l)" *ngFor="let l of languages">
         <ion-label>{{ l.name | translate }}</ion-label>
         <ion-checkbox color="light" [checked]="l.checked" disabled="true"></ion-checkbox>

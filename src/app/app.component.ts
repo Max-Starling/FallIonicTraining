@@ -24,12 +24,12 @@ export class AppComponent {
     private aboutTitle: string;
     private pages: Array<{ title: string, icon: string, component: any }>;
     constructor(private platform: Platform,
-                private statusBar: StatusBar,
-                private splashScreen: SplashScreen,
-                private translateService: TranslateService,
-                private dateFormatterService: DateFormatterService,
-                private storage: Storage,
-                private http: Http
+        private statusBar: StatusBar,
+        private splashScreen: SplashScreen,
+        private translateService: TranslateService,
+        private dateFormatterService: DateFormatterService,
+        private storage: Storage,
+        private http: Http
     ) {
         this.initializeApp();
         this.translateService.setDefaultLang('en');
@@ -42,6 +42,7 @@ export class AppComponent {
         ];
         this.checkInStorage('news', 'assets/news.json');
         this.checkInStorage('favorites', 'assets/favorites.json');
+        this.checkInStorage('icons', 'assets/icons.json');
         // this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
         //     this.pages = [
         //         { title: 'NEWS', icon: 'images', component: ListPage },
@@ -67,7 +68,7 @@ export class AppComponent {
         this.nav.setRoot(page.component);
     }
 
-    private checkInStorage(item, path){
+    private checkInStorage(item, path) {
         this.storage.ready().then(() => {
             this.storage.get(item).then((data) => {
                 console.log(item, data);
@@ -79,29 +80,37 @@ export class AppComponent {
             });
         });
     }
-    private loadFromJSON(item,path: string){
+    private loadFromJSON(item, path) {
         this.http.get(path)
-        .map(res => res.json())
-        .subscribe(data => {
-            if (data) {
-                const news = [];
-                for (let i = 0; i < data.length; i++) {
-                    news.push({
-                        title: data[i].title,
-                        icon: data[i].icon,
-                        creationDate: data[i].creationDate,
-                        formattedDate: '',
-                        author: data[i].author,
-                        content: data[i].content,
+            .map(res => res.json())
+            .subscribe(data => {
+                if (data) {
+                    const items = [];
+                    if (item == "favorites" || item == "news") {
+                        for (let i = 0; i < data.length; i++) {
+                            items.push({
+                                title: data[i].title,
+                                icon: data[i].icon,
+                                creationDate: data[i].creationDate,
+                                formattedDate: '',
+                                author: data[i].author,
+                                content: data[i].content,
+                            });
+                        }
+                        items.forEach((item) => {
+                            item.formattedDate = this.dateFormatterService.formatDate(item.creationDate);
+                        });
+                    } else if (item == "icons") {
+                        for (let i = 0; i < data.length; i++) {
+                            items.push({
+                                icon: data[i].icon,
+                            });
+                        }
+                    }
+                    this.storage.ready().then(() => {
+                        this.storage.set(item, items);
                     });
                 }
-                news.forEach((item) => {
-                    item.formattedDate = this.dateFormatterService.formatDate(item.creationDate);
-                });
-                this.storage.ready().then(() => {
-                    this.storage.set(item, news);
-                });
-            }
-        });
+            });
     }
 }

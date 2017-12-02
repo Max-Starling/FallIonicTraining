@@ -1,0 +1,389 @@
+[
+    {
+        "icon": "alarm"
+    },
+    {
+        "icon": "american-football"
+    },
+    {
+        "icon": "analytics"
+    },
+    {
+        "icon": "baseball"
+    },
+    {
+        "icon": "basket"
+    },
+    {
+        "icon": "basketball"
+    },
+    {
+        "icon": "battery-charging"
+    },
+    {
+        "icon": "beer"
+    },
+    {
+        "icon": "bicycle"
+    },
+    {
+        "icon": "boat"
+    },
+    {
+        "icon": "body"
+    },
+    {
+        "icon": "bonfire"
+    },
+    {
+        "icon": "book"
+    },
+    {
+        "icon": "bowtie"
+    },
+    {
+        "icon": "briefcase"
+    },
+    {
+        "icon": "brush"
+    },
+    {
+        "icon": "build"
+    },
+    {
+        "icon": "bulb"
+    },
+    {
+        "icon": "bus"
+    },
+    {
+        "icon": "cafe"
+    },
+    {
+        "icon": "calculator"
+    },
+    {
+        "icon": "calendar"
+    },
+    {
+        "icon": "call"
+    },
+    {
+        "icon": "camera"
+    },
+    {
+        "icon": "car"
+    },
+    {
+        "icon": "card"
+    },
+    {
+        "icon": "cart"
+    },
+    {
+        "icon": "cash"
+    },
+    {
+        "icon": "clipboard"
+    },
+    {
+        "icon": "clock"
+    },
+    {
+        "icon": "cloud"
+    },
+    {
+        "icon": "cloudy"
+    },
+    {
+        "icon": "cloudy-night"
+    },
+    {
+        "icon": "code"
+    },
+    {
+        "icon": "cog"
+    },
+    {
+        "icon": "color-wand"
+    },
+    {
+        "icon": "compass"
+    },
+    {
+        "icon": "construct"
+    },
+    {
+        "icon": "contacts"
+    },
+    {
+        "icon": "cut"
+    },
+    {
+        "icon": "disc"
+    },
+    {
+        "icon": "egg"
+    },
+    {
+        "icon": "eye"
+    },
+    {
+        "icon": "eye-off"
+    },
+    {
+        "icon": "film"
+    },
+    {
+        "icon": "finger-print"
+    },
+    {
+        "icon": "flag"
+    },
+    {
+        "icon": "flame"
+    },
+    {
+        "icon": "flash"
+    },
+    {
+        "icon": "flask"
+    },
+    {
+        "icon": "flower"
+    },
+    {
+        "icon": "football"
+    },
+    {
+        "icon": "game-controller-b"
+    },
+    {
+        "icon": "glasses"
+    },
+    {
+        "icon": "globe"
+    },
+    {
+        "icon": "hammer"
+    },
+    {
+        "icon": "hand"
+    },
+    {
+        "icon": "happy"
+    },
+    {
+        "icon": "headset"
+    },
+    {
+        "icon": "help-buoy"
+    },
+    {
+        "icon": "home"
+    },
+    {
+        "icon": "ice-cream"
+    },
+    {
+        "icon": "image"
+    },
+    {
+        "icon": "images"
+    },
+    {
+        "icon": "infinite"
+    },
+    {
+        "icon": "ionic"
+    },
+    {
+        "icon": "ionitron"
+    },
+    {
+        "icon": "jet"
+    },
+    {
+        "icon": "key"
+    },
+    {
+        "icon": "laptop"
+    },
+    {
+        "icon": "leaf"
+    },
+    {
+        "icon": "lock"
+    },
+    {
+        "icon": "magnet"
+    },
+    {
+        "icon": "man"
+    },
+    {
+        "icon": "map"
+    },
+    {
+        "icon": "medal"
+    },
+    {
+        "icon": "medical"
+    },
+    {
+        "icon": "medkit"
+    },
+    {
+        "icon": "megaphone"
+    },
+    {
+        "icon": "microphone"
+    },
+    {
+        "icon": "moon"
+    },
+    {
+        "icon": "musical-note"
+    },
+    {
+        "icon": "musical-notes"
+    },
+    {
+        "icon": "no-smoking"
+    },
+    {
+        "icon": "notifications"
+    },
+    {
+        "icon": "nuclear"
+    },
+    {
+        "icon": "nutrition"
+    },
+    {
+        "icon": "outlet"
+    },
+    {
+        "icon": "paper-plane"
+    },
+    {
+        "icon": "partly-sunny"
+    },
+    {
+        "icon": "paw"
+    },
+    {
+        "icon": "pie"
+    },
+    {
+        "icon": "pin"
+    },
+    {
+        "icon": "pint"
+    },
+    {
+        "icon": "pizza"
+    },
+    {
+        "icon": "plane"
+    },
+    {
+        "icon": "planet"
+    },
+    {
+        "icon": "podium"
+    },
+    {
+        "icon": "power"
+    },
+    {
+        "icon": "pricetag"
+    },
+    {
+        "icon": "pricetags"
+    },
+    {
+        "icon": "pulse"
+    },
+    {
+        "icon": "radio"
+    },
+    {
+        "icon": "rainy"
+    },
+    {
+        "icon": "recording"
+    },
+    {
+        "icon": "restaurant"
+    },
+    {
+        "icon": "ribbon"
+    },
+    {
+        "icon": "rose"
+    },
+    {
+        "icon": "sad"
+    },
+    {
+        "icon": "school"
+    },
+    {
+        "icon": "shirt"
+    },
+    {
+        "icon": "snow"
+    },
+    {
+        "icon": "speedometer"
+    },
+    {
+        "icon": "stats"
+    },
+    {
+        "icon": "subway"
+    },
+    {
+        "icon": "sunny"
+    },
+    {
+        "icon": "tennisball"
+    },
+    {
+        "icon": "thermometer"
+    },
+    {
+        "icon": "thunderstorm"
+    },
+    {
+        "icon": "trending-down"
+    },
+    {
+        "icon": "trending-up"
+    },
+    {
+        "icon": "trophy"
+    },
+    {
+        "icon": "umbrella"
+    },
+    {
+        "icon": "videocam"
+    },
+    {
+        "icon": "walk"
+    },
+    {
+        "icon": "watch"
+    },
+    {
+        "icon": "water"
+    },
+    {
+        "icon": "wine"
+    },
+    {
+        "icon": "woman"
+    }
+]

@@ -15,5 +15,6 @@
     "TITLE": "Title",
     "CONTENT": "Content",
     "CHOOSE_ICON": "Choose icon",
-    "SEARCH_BY_TITLE": "Search by title"
+    "SEARCH_BY_TITLE": "Search by title",
+    "SEARCH_ICON": "Search icon by id"
 }

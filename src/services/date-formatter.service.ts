@@ -7,7 +7,7 @@ export class DateFormatterService {
         return `${this.defineMonth(timeArray.month)}${', '}${this.removeZero(timeArray.day)}${'  '}${this.removeZero(timeArray.hours)}${':'}${timeArray.minutes}`
     }
     public getTimeArray(date: string) {
-        console.log(date);
+        // console.log(date);
         const allTokens = date.split('T');
         const leftTokens = allTokens[0].split('-');
         const rightTokens = allTokens[1].split(':');

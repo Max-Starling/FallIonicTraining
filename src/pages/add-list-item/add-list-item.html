@@ -12,14 +12,13 @@
         <ion-input [(ngModel)]="titleValue" [placeholder]="'TITLE' | translate" clearInput></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label>{{ 'CHOOSE_ICON' | translate }}</ion-label>
-        <ion-select #sectionSelect [(ngModel)]="iconValue">
-            <!-- <ion-option value="0" selected="true">None</ion-option> -->
+        <ion-label class="select-icon-button" (click)="presentSelectIcon()" margin-left>  {{ iconValue | translate }}</ion-label>
+        <!-- <ion-select #sectionSelect [(ngModel)]="iconValue" [disabled]="true" >
             <ion-option *ngFor="let icon of icons" [value]="icon">{{icon}} </ion-option>
-        </ion-select>
+        </ion-select> -->
     </ion-item>
     <ion-item>
-        <ion-input [(ngModel)]="contentValue" [placeholder]="'CONTENT' | translate" clearInput></ion-input>
+        <ion-textarea [(ngModel)]="contentValue" [placeholder]="'CONTENT' | translate" clearInput></ion-textarea>
     </ion-item>
     <ion-row justify-content-center>
         <button class="submit-button" ion-button (click)="saveButtonTapped($event, item)" margin-bottom>{{ 'SAVE' | translate }}</button>

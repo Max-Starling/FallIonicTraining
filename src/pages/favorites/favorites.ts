@@ -31,6 +31,12 @@ export class FavoritesPage {
         private storage: Storage,
         private transferService: SubjectTransferService) {
         this.showingItems = [];
+        transferService.getData().subscribe((data) => {
+            if (data.type == "favorites") {
+                this.showingItems = data.options;
+                this.storingItems = this.showingItems;
+            }
+        });
         this.storage.ready().then(() => {
             // console.log('qqq')
             this.storage.get('favorites').then((data) => {
@@ -39,20 +45,15 @@ export class FavoritesPage {
                     this.storingItems = this.showingItems;
                     console.log('if');
                 }
-                transferService.getData().subscribe((data) => {
-                    if (data.type == "favorites") {
-                        this.showingItems = data.options;
-                        this.storingItems = this.showingItems;
-                    }
-                });
             });
         });
     }
     private itemTapped(event, i) {
+        console.log(i.creationDate);
         this.navCtrl.push(ListItemPage, {
             title: i.title,
-            summary: i.summary,
-            date: i.date,
+            icon: i.icon,
+            creationDate: i.creationDate,
             formattedDate: i.formattedDate,
             author: i.author,
             content: i.content,

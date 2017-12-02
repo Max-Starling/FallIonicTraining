@@ -15,5 +15,6 @@
     "TITLE": "Название новости",
     "CONTENT": "Текст",
     "CHOOSE_ICON": "Выберите иконку",
-    "SEARCH_BY_TITLE": "Поиск по названию"
+    "SEARCH_BY_TITLE": "Поиск по названию",
+    "SEARCH_ICON": "Поиск иконки по id"
 }

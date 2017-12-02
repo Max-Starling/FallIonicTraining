@@ -4,8 +4,12 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <button class="list-button-news" ion-item>
-                <ion-title>{{ 'NEWS' | translate }}</ion-title>
-            <button ion-button item-only item-end (click)="addButtonTapped($event)">
+            <ion-title>
+                <ion-icon name="images"></ion-icon>
+                {{ 'NEWS' | translate }}
+                <!-- <ion-icon name="images"></ion-icon> -->
+            </ion-title>
+            <button class="add-button" ion-button item-only item-end (click)="addButtonTapped($event)">
                 <ion-icon name="add-circle"></ion-icon>
             </button>
         </button>
@@ -13,8 +17,8 @@
 </ion-header>
 
 <ion-content>
-    <ion-searchbar [(ngModel)]="searchValue" [placeholder]="'SEARCH_BY_TITLE' | translate" [showCancelButton]="shouldShowCancel" (ionInput)="onSearchInput($event)"
-        (ionCancel)="onSearchCancel($event)" margin-bottom>
+    <ion-searchbar [(ngModel)]="searchValue" [placeholder]="'SEARCH_BY_TITLE' | translate" [showCancelButton]="shouldShowCancel"
+        (ionInput)="onSearchInput($event)" (ionCancel)="onSearchCancel($event)" margin-bottom>
     </ion-searchbar>
     <ion-list>
         <button class="list-button" ion-item *ngFor="let item of showingItems" (click)="itemTapped($event, item)" margin-bottom>

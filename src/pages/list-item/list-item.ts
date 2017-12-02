@@ -29,31 +29,22 @@ export class ListItemPage {
     }
 
     private favButtonTapped(event) {
-        this.checkIsFavorite();
         this.storage.ready().then(() => {
             this.storage.get('favorites').then((favoritesData) => {
+                favoritesData.forEach((element, index) => {
+                    if (element.creationDate == this.item.creationDate) {
+                        this.isFavorite = true;
+                    }
+                });
+                if (!this.isFavorite) {
+                    this.isFavorite = false;
+                }
                 console.log(favoritesData);
                 console.log(this.isFavorite)
                 if (this.isFavorite) {
                     this.deleteItemIn('favorites');
                 } else {
                     this.addItemIn('favorites');
-                }
-                // this.isFavorite = !this.isFavorite;
-            });
-        });
-    }
-    private checkIsFavorite() {
-        this.storage.ready().then(() => {
-            this.storage.get('favorites').then((storageData) => {
-                storageData.forEach((element, index) => {
-                    if (element.creationDate == this.item.creationDate) {
-                        this.isFavorite = true;
-                        return this.isFavorite;
-                    }
-                });
-                if (!this.isFavorite === true) {
-                    this.isFavorite = false;
                 }
             });
         });
@@ -140,7 +131,6 @@ export class ListItemPage {
                 this.transferService.putData(storageData, storageName);
                 this.storage.ready().then(() => {
                     this.storage.set(storageName, storageData);
-                    // this.navCtrl.popToRoot();
                 });
                 console.log(storageData);
             });

@@ -35,6 +35,9 @@
     margin-bottom: 8px;
     color: color($colors, light);
 }
+.toolbar-content {
+    opacity: 0.8;
+}
 .list-button:focus, .list-button:active {
     background: #303030;
 }
@@ -67,4 +70,12 @@ ion-searchbar {
 .item-md.activated {
     background-color: color($colors, dark);
     // background-color: transparent;
+}
+
+ion-icon {
+    font-size: 2.1rem;
+}
+
+.menu ion-icon {
+    font-size: 1.6rem;
 }

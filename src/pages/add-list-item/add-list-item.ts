@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 import { ListPage } from '../list/list';
 import { Storage } from '@ionic/storage';
 import { SubjectTransferService } from '../../services/subject-transfer.service';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { DateFormatterService } from '../../services/date-formatter.service';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
-// import { Http, HttpModule } from '@angular/http';
+import { SelectIconComponent } from '../../components/select-icon/select-icon.component';
 
 @Component({
     selector: 'page-add-list-item',
@@ -27,18 +27,33 @@ export class AddListItemPage {
         author: string,
         content: string,
     };
-    constructor(private navCtrl: NavController, private storage: Storage, private transferService: SubjectTransferService, private alertCtrl: AlertController, private dateFormatterService: DateFormatterService, private navParams: NavParams) {
-        this.icons = ['pizza', 'paper-plane', 'snow', 'bonfire', 'bowtie', 'clock', 'cloudy-night', 'cog', 'compass', 'flask', 'leaf'];
+    constructor(private navCtrl: NavController,
+                private modalCtrl: ModalController,
+                private storage: Storage,
+                private transferService: SubjectTransferService,
+                private alertCtrl: AlertController,
+                private dateFormatterService: DateFormatterService,
+                private navParams: NavParams) {
+        // this.icons = ['pizza', 'paper-plane', 'snow', 'bonfire', 'bowtie', 'clock', 'cloudy-night', 'cog', 'compass', 'flask', 'leaf'];
+        this.iconValue = "CHOOSE_ICON";
         if (this.navParams.get('purpose') === "edit") {
-            console.log('qq')
             this.titleValue = this.navParams.data.title;
             this.contentValue = this.navParams.data.content;
             this.iconValue = this.navParams.data.icon;
-
         }
     }
+    private presentSelectIcon() {
+        let selectIconModal = this.modalCtrl.create(SelectIconComponent);
+        selectIconModal.onDidDismiss(data => {
+          console.log(data);
+          if (data) {
+            this.iconValue = data;
+          }
+        });
+        selectIconModal.present();
+    }
     private saveButtonTapped(event) {
-        console.log(this.iconValue, this.contentValue);
+        // console.log(this.iconValue, this.contentValue);
         if (this.navParams.get('purpose') === "edit") {
             this.editArticleIn('news');
             this.editArticleIn('favorites');
@@ -51,7 +66,6 @@ export class AddListItemPage {
         let state = false;
         array.forEach((item, i) => {
             if (item.date == this.newItem.creationDate) {
-                console.log(item.date, this.newItem.creationDate);
                 state = true;
             }
         });

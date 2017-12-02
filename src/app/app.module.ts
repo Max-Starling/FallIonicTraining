@@ -9,6 +9,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { AppComponent } from './app.component';
+import { SelectIconComponent } from '../components/select-icon/select-icon.component';
 import { ListPage } from '../pages/list/list';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { ListItemPage } from '../pages/list-item/list-item';
@@ -57,6 +58,7 @@ export function createTranslateLoader(http: HttpClient) {
         SettingsPage,
         AboutPage,
         FavoritesPage,
+        SelectIconComponent,
     ],
     imports: [
         BrowserModule,
@@ -81,6 +83,7 @@ export function createTranslateLoader(http: HttpClient) {
         SettingsPage,
         AboutPage,
         FavoritesPage,
+        SelectIconComponent,
     ],
     providers: [
         StatusBar,
