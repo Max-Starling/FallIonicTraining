@@ -16,5 +16,14 @@
     "CONTENT": "Текст",
     "CHOOSE_ICON": "Выберите иконку",
     "SEARCH_BY_TITLE": "Поиск по названию",
-    "SEARCH_ICON": "Поиск иконки по id"
+    "SEARCH_ICON": "Поиск иконки по id",
+    "NOT_YOURS_ALERT_TITLE": "Хм...",
+    "NOT_YOURS_ALERT_SUBTITLE": "Это не ваш пост. И вы не можете сделать это.",
+    "NOT_YOURS_ALERT_BUTTON": "Согласиться",
+    "CONFIRM_ALERT_TITLE": "Помедленнее, пожалуйста...",
+    "SAVE_ALERT_SUBTITLE": "Хотите ли вы сохранить изменения?",
+    "DELETE_ALERT_SUBTITLE": "Действительно ли вы хотите удалить это?",
+    "YES_BUTTON": "Да",
+    "NO_BUTTON": "Нет",
+    "CANCEL_BUTTON": "Отмена"
 }

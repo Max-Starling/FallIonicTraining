@@ -21,6 +21,6 @@
         <ion-textarea [(ngModel)]="contentValue" [placeholder]="'CONTENT' | translate" clearInput></ion-textarea>
     </ion-item>
     <ion-row justify-content-center>
-        <button class="submit-button" ion-button (click)="saveButtonTapped($event, item)" margin-bottom>{{ 'SAVE' | translate }}</button>
+        <button class="submit-button" ion-button (click)="presentConfirm()" margin-bottom>{{ 'SAVE' | translate }}</button>
     </ion-row>
 </ion-content>

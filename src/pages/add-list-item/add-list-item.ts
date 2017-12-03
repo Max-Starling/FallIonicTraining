@@ -7,6 +7,7 @@ import { AlertController } from 'ionic-angular/components/alert/alert-controller
 import { DateFormatterService } from '../../services/date-formatter.service';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
 import { SelectIconComponent } from '../../components/select-icon/select-icon.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'page-add-list-item',
@@ -28,12 +29,13 @@ export class AddListItemPage {
         content: string,
     };
     constructor(private navCtrl: NavController,
-                private modalCtrl: ModalController,
-                private storage: Storage,
-                private transferService: SubjectTransferService,
-                private alertCtrl: AlertController,
-                private dateFormatterService: DateFormatterService,
-                private navParams: NavParams) {
+        private modalCtrl: ModalController,
+        private storage: Storage,
+        private transferService: SubjectTransferService,
+        private alertCtrl: AlertController,
+        private dateFormatterService: DateFormatterService,
+        private navParams: NavParams,
+        private translate: TranslateService) {
         // this.icons = ['pizza', 'paper-plane', 'snow', 'bonfire', 'bowtie', 'clock', 'cloudy-night', 'cog', 'compass', 'flask', 'leaf'];
         this.iconValue = "CHOOSE_ICON";
         if (this.navParams.get('purpose') === "edit") {
@@ -45,15 +47,13 @@ export class AddListItemPage {
     private presentSelectIcon() {
         let selectIconModal = this.modalCtrl.create(SelectIconComponent);
         selectIconModal.onDidDismiss(data => {
-          console.log(data);
-          if (data) {
-            this.iconValue = data;
-          }
+            if (data) {
+                this.iconValue = data;
+            }
         });
         selectIconModal.present();
     }
-    private saveButtonTapped(event) {
-        // console.log(this.iconValue, this.contentValue);
+    private saveButtonTapped() {
         if (this.navParams.get('purpose') === "edit") {
             this.editArticleIn('news');
             this.editArticleIn('favorites');
@@ -114,6 +114,40 @@ export class AddListItemPage {
                         this.navCtrl.popToRoot();
                     });
                 }
+            });
+        });
+    }
+    private presentConfirm() {
+        this.translate.get('CONFIRM_ALERT_TITLE').subscribe((title: string) => {
+            this.translate.get('SAVE_ALERT_SUBTITLE').subscribe((subtitle: string) => {
+                this.translate.get('YES_BUTTON').subscribe((buttonYes: string) => {
+                    this.translate.get('NO_BUTTON').subscribe((buttonNo: string) => {
+                        this.translate.get('CANCEL_BUTTON').subscribe((buttonCancel: string) => {
+                            let alert = this.alertCtrl.create({
+                                title: title,
+                                message: subtitle,
+                                buttons: [
+                                    {
+                                        text: buttonYes,
+                                        handler: () => this.saveButtonTapped(),
+                                    },
+                                    {
+                                        text: buttonNo,
+                                        handler: () => {
+                                            this.navCtrl.pop();
+                                        },
+                                    },
+                                    {
+                                        text: buttonCancel,
+                                        role: 'cancel',
+                                    }
+                                ]
+                            });
+                            console.log(alert);
+                            alert.present();
+                        });
+                    });
+                });
             });
         });
     }

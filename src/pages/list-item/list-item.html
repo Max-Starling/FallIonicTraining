@@ -8,10 +8,10 @@
 </ion-header>
 
 <ion-content>
-    <ion-row justify-content-end margin-top margin-bottom>
-        <ion-icon class="list-item-icons" name="heart" margin-right (click)="favButtonTapped($event)"></ion-icon>
+    <ion-row class="item-icons-panel" justify-content-end margin-top margin-bottom>
+        <ion-icon class="list-item-icons" [class.favorited]="isFavorite" name="heart" margin-right (click)="favButtonTapped($event)"></ion-icon>
         <ion-icon class="list-item-icons" name="create" margin-right (click)="editButtonTapped($event)"></ion-icon>
-        <ion-icon class="list-item-icons" name="close" margin-right (click)="deleteButtonTapped($event)"></ion-icon>
+        <ion-icon class="list-item-icons" name="close" margin-right (click)="presentConfirm()"></ion-icon>
     </ion-row>
     <div *ngIf="item" class="list-item-content-bg" padding>
         <p>{{item.content}} </p>

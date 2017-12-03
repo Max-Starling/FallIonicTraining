@@ -16,5 +16,14 @@
     "CONTENT": "Content",
     "CHOOSE_ICON": "Choose icon",
     "SEARCH_BY_TITLE": "Search by title",
-    "SEARCH_ICON": "Search icon by id"
+    "SEARCH_ICON": "Search icon by id",
+    "NOT_YOURS_ALERT_TITLE": "Huh...",
+    "NOT_YOURS_ALERT_SUBTITLE": "Sorry, it's now yous. You can't do this.",
+    "NOT_YOURS_ALERT_BUTTON": "No problem",
+    "CONFIRM_ALERT_TITLE": "Slow down, please...",
+    "SAVE_ALERT_SUBTITLE": "Do you want to save changes?",
+    "DELETE_ALERT_SUBTITLE": "Do you really want to delete this?",
+    "YES_BUTTON": "Yes",
+    "NO_BUTTON": "No",
+    "CANCEL_BUTTON": "Cancel"
 }

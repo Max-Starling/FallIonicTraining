@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { AddListItemPage } from '../add-list-item/add-list-item';
 import { SubjectTransferService } from '../../services/subject-transfer.service';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'page-list-item',
@@ -16,7 +17,8 @@ export class ListItemPage {
         private storage: Storage,
         private transferService: SubjectTransferService,
         private navCtrl: NavController,
-        private alertCtrl: AlertController) {
+        private alertCtrl: AlertController,
+        private translate: TranslateService) {
         this.item = {
             'title': this.navParams.get('title'),
             'icon': this.navParams.get('icon'),
@@ -25,7 +27,7 @@ export class ListItemPage {
             'content': this.navParams.get('content'),
             'formattedDate': this.navParams.get('formattedDate')
         }
-        console.log(this.item);
+        this.checkIsFavorite();
     }
 
     private favButtonTapped(event) {
@@ -36,15 +38,26 @@ export class ListItemPage {
                         this.isFavorite = true;
                     }
                 });
-                if (!this.isFavorite) {
-                    this.isFavorite = false;
-                }
-                console.log(favoritesData);
-                console.log(this.isFavorite)
                 if (this.isFavorite) {
                     this.deleteItemIn('favorites');
-                } else {
+                    this.isFavorite = false;
+                } else if (!this.isFavorite) {
                     this.addItemIn('favorites');
+                    this.isFavorite = true;
+                }
+            });
+        });
+    }
+    private checkIsFavorite() {
+        this.storage.ready().then(() => {
+            this.storage.get('favorites').then((favoritesData) => {
+                favoritesData.forEach((element, index) => {
+                    if (element.creationDate == this.item.creationDate) {
+                        this.isFavorite = true;
+                    }
+                });
+                if (!this.isFavorite) {
+                    this.isFavorite = false;
                 }
             });
         });
@@ -64,14 +77,10 @@ export class ListItemPage {
             this.presentAlert();
         }
     }
-    private deleteButtonTapped(event) {
-        if (this.checkAuthor(this.item.author)) {
-            this.deleteItemIn('news');
-            this.deleteItemIn('favorites');
-            this.navCtrl.popToRoot();
-        } else {
-            this.presentAlert();
-        }
+    private deleteButtonTapped() {
+        this.deleteItemIn('news');
+        this.deleteItemIn('favorites');
+        this.navCtrl.popToRoot();
     }
     private checkAuthor(articleAuthor) {
         if (articleAuthor != 'You') {
@@ -80,34 +89,48 @@ export class ListItemPage {
         return true;
     }
     private presentAlert() {
-        let alert = this.alertCtrl.create({
-            title: 'Huh...',
-            subTitle: "Sorry, it's now yous. You can't do this.",
-            buttons: ['No problem']
+        this.translate.get('NOT_YOURS_ALERT_TITLE').subscribe((title: string) => {
+            this.translate.get('NOT_YOURS_ALERT_SUBTITLE').subscribe((subtitle: string) => {
+                this.translate.get('NOT_YOURS_ALERT_BUTTON').subscribe((button: string) => {
+                    let alert = this.alertCtrl.create({
+                        title: title,
+                        subTitle: subtitle,
+                        buttons: [button],
+                    });
+                    alert.present();
+                });
+            });
         });
-        alert.present();
     }
-    private presentConfirm(alertTitle, alertMessage) {
-        let alert = this.alertCtrl.create({
-          title: 'Slow down, please...',
-          message: 'Do you want to save changes?',
-          buttons: [
-            {
-              text: 'No',
-            //   role: 'cancel',
-              handler: () => {
-                console.log('Cancel clicked');
-              }
-            },
-            {
-              text: 'Yes',
-              handler: () => {
-                console.log('Buy clicked');
-              }
-            }
-          ]
-        });
-        alert.present();
+    private presentConfirm() {
+        if (this.checkAuthor(this.item.author)) {
+            this.translate.get('CONFIRM_ALERT_TITLE').subscribe((title: string) => {
+                this.translate.get('DELETE_ALERT_SUBTITLE').subscribe((subtitle: string) => {
+                    this.translate.get('YES_BUTTON').subscribe((buttonYes: string) => {
+                        this.translate.get('NO_BUTTON').subscribe((buttonNo: string) => {
+                            let alert = this.alertCtrl.create({
+                                title: title,
+                                message: subtitle,
+                                buttons: [
+                                    {
+                                        text: buttonYes,
+                                        handler: () => this.deleteButtonTapped(),
+                                    },
+                                    {
+                                        text: buttonNo,
+                                        role: 'cancel',
+                                    }
+                                ]
+                            });
+                            alert.present();
+                        });
+                    });
+                });
+            });
+        }
+        else {
+            this.presentAlert();
+        }
     }
     private addItemIn(storageName) {
         this.storage.ready().then(() => {

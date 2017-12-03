@@ -24,10 +24,10 @@
         <button class="list-button" ion-item *ngFor="let item of showingItems" (click)="itemTapped($event, item)" margin-bottom>
             <ion-icon [name]="item.icon" item-start></ion-icon>
             <div class="list-button-title" class="item-note" item>
-                {{item.title}}
+                {{ item.title }}
             </div>
             <div class="list-button-note" class="item-note" item-end>
-                {{item.formattedDate}}
+                {{ item.formattedDate | translate }}
             </div>
         </button>
     </ion-list>

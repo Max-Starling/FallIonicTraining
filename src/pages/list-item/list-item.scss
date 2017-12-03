@@ -14,3 +14,16 @@
     opacity: 0.8;
 }
 
+.favorited {
+    color:rgba(184, 149, 177, 0.5);
+    // opacity: 0.5;
+    text-shadow:
+    -0   -1px 0   color($colors, dark),
+     0   -1px 0   color($colors, dark),
+    -0    1px 0   color($colors, dark),
+     0    1px 0   color($colors, dark),
+    -1px -0   0   color($colors, dark),
+     1px -0   0   color($colors, dark),
+    -1px  0   0   color($colors, dark),
+     1px  0   0   color($colors, dark),
+}
