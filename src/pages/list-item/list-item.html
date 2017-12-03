@@ -18,7 +18,7 @@
     </div>
     <div *ngIf="item" class="list-item-content-bg" padding>
         <ion-row justify-content-between>
-            <ion-badge>{{item.formattedDate}} </ion-badge>
+            <ion-badge>{{ item.timeObject.month | translate }}, {{ item.timeObject.day}} | {{ item.timeObject.hours}}:{{ item.timeObject.minutes}} </ion-badge>
             <ion-badge>{{item.author}} </ion-badge>
         </ion-row>
     </div>

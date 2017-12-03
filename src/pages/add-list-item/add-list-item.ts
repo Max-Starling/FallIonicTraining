@@ -24,20 +24,19 @@ export class AddListItemPage {
         title: string,
         icon: string,
         creationDate: string,
-        formattedDate: string,
+        timeObject: any,
         author: string,
         content: string,
     };
     private isSelected: boolean;
     constructor(private navCtrl: NavController,
-        private modalCtrl: ModalController,
-        private storage: Storage,
-        private transferService: SubjectTransferService,
-        private alertCtrl: AlertController,
-        private dateFormatterService: DateFormatterService,
-        private navParams: NavParams,
-        private translate: TranslateService) {
-        // this.icons = ['pizza', 'paper-plane', 'snow', 'bonfire', 'bowtie', 'clock', 'cloudy-night', 'cog', 'compass', 'flask', 'leaf'];
+                private modalCtrl: ModalController,
+                private storage: Storage,
+                private transferService: SubjectTransferService,
+                private alertCtrl: AlertController,
+                private dateFormatterService: DateFormatterService,
+                private navParams: NavParams,
+                private translate: TranslateService) {
         this.iconValue = "CHOOSE_ICON";
         if (this.navParams.get('purpose') === "edit") {
             this.titleValue = this.navParams.data.title;
@@ -87,7 +86,7 @@ export class AddListItemPage {
                     title: this.titleValue,
                     icon: this.iconValue,
                     creationDate: date,
-                    formattedDate: this.dateFormatterService.formatDate(date),
+                    timeObject: this.dateFormatterService.getTimeObject(date),
                     author: 'You',
                     content: this.contentValue,
                 }
@@ -146,7 +145,6 @@ export class AddListItemPage {
                                     }
                                 ]
                             });
-                            console.log(alert);
                             alert.present();
                         });
                     });

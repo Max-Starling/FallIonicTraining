@@ -27,7 +27,7 @@
                 {{ item.title }}
             </div>
             <div class="list-button-note" class="item-note" item-end>
-                {{ item.formattedDate | translate }}
+                {{ item.timeObject.month | translate }}, {{ item.timeObject.day}} | {{ item.timeObject.hours}}:{{ item.timeObject.minutes}}
             </div>
         </button>
     </ion-list>

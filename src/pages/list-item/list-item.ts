@@ -23,9 +23,9 @@ export class ListItemPage {
             'title': this.navParams.get('title'),
             'icon': this.navParams.get('icon'),
             'creationDate': this.navParams.get('creationDate'),
+            'timeObject': this.navParams.get('timeObject'),
             'author': this.navParams.get('author'),
             'content': this.navParams.get('content'),
-            'formattedDate': this.navParams.get('formattedDate')
         }
         this.checkIsFavorite();
     }
@@ -69,7 +69,7 @@ export class ListItemPage {
                 title: this.item.title,
                 icon: this.item.icon,
                 creationDate: this.item.creationDate,
-                formattedDate: this.item.formattedDate,
+                timeObject: this.item.timeObject,
                 author: this.item.author,
                 content: this.item.content,
             });

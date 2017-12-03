@@ -86,13 +86,13 @@ export class AppComponent {
                                 title: jsonData[i].title,
                                 icon: jsonData[i].icon,
                                 creationDate: jsonData[i].creationDate,
-                                formattedDate: '',
+                                timeObject: {},
                                 author: jsonData[i].author,
                                 content: jsonData[i].content,
                             });
                         }
                         storageData.forEach((item) => {
-                            item.formattedDate = this.dateFormatterService.formatDate(item.creationDate);
+                            item.timeObject = this.dateFormatterService.getTimeObject(item.creationDate);
                         });
                     } else if (storageName == "icons") {
                         for (let i = 0; i < jsonData.length; i++) {

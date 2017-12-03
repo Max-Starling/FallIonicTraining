@@ -18,7 +18,14 @@ export class ListPage {
         title: string,
         icon: string,
         creationDate: string,
-        formattedDate: string,
+        timeObject: {
+            year: number,
+            month: string,
+            day:  number,
+            hours: number,
+            minutes: number,
+            seconds: number,
+        },
         author: string,
         content: string,
     }>;
@@ -53,7 +60,7 @@ export class ListPage {
             title: i.title,
             icon: i.icon,
             creationDate: i.creationDate,
-            formattedDate: i.formattedDate,
+            timeObject: i.timeObject,
             author: i.author,
             content: i.content,
         });

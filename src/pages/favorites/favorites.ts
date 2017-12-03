@@ -16,8 +16,15 @@ export class FavoritesPage {
         title: string,
         summary: string,
         icon: string,
-        date: string,
-        formattedDate: string,
+        creationDate: string,
+        timeObject: {
+            year: number,
+            month: string,
+            day:  number,
+            hours: number,
+            minutes: number,
+            seconds: number,
+        },
         author: string,
         content: string,
     }>;
@@ -52,7 +59,7 @@ export class FavoritesPage {
             title: i.title,
             icon: i.icon,
             creationDate: i.creationDate,
-            formattedDate: i.formattedDate,
+            timeObject: i.timeObject,
             author: i.author,
             content: i.content,
         });
