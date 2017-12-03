@@ -18,9 +18,9 @@ Now user has the ability to:
 - add some article in favorites and delete this from favotires.
 - search articles in news & favorites.
 
-######Most of the actions are accompanied by the appearance of alerts that inform user or allow user to make a choice.
-######Also, the application works well when you rotate the screen or start it in a browser.
-######So, today it's high-grade hybrid application and my great experience in this field of activity.
+Most of the actions are accompanied by the appearance of alerts that inform user or allow user to make a choice.
+Also, the application works well when you rotate the screen or start it in a browser.
+So, today it's high-grade hybrid application and my great experience in this field of activity.
 
 ## Nov, 24 | Snapshot #1 (First Steps) ##
 Now app has menu and 3 pages(home, list, settings). 
