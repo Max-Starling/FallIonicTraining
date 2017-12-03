@@ -10,6 +10,7 @@ import { FavoritesPage } from '../pages/favorites/favorites';
 import { SettingsPage } from '../pages/settings/settings';
 import { AboutPage } from '../pages/about/about';
 import { DateFormatterService } from '../services/date-formatter.service';
+import { SubjectTransferService } from '../services/subject-transfer.service';
 
 @Component({
     templateUrl: 'app.component.html',
@@ -24,13 +25,13 @@ export class AppComponent {
     private aboutTitle: string;
     private pages: Array<{ title: string, icon: string, component: any }>;
     constructor(private platform: Platform,
-        private statusBar: StatusBar,
-        private splashScreen: SplashScreen,
-        private translateService: TranslateService,
-        private dateFormatterService: DateFormatterService,
-        private storage: Storage,
-        private http: Http
-    ) {
+                private statusBar: StatusBar,
+                private splashScreen: SplashScreen,
+                private translateService: TranslateService,
+                private dateFormatterService: DateFormatterService,
+                private storage: Storage,
+                private http: Http,
+                private transferService: SubjectTransferService) {
         this.initializeApp();
         this.translateService.setDefaultLang('en');
         this.translateService.use('en')
@@ -43,14 +44,6 @@ export class AppComponent {
         this.checkInStorage('news', 'assets/news.json');
         this.checkInStorage('favorites', 'assets/favorites.json');
         this.checkInStorage('icons', 'assets/icons.json');
-        // this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-        //     this.pages = [
-        //         { title: 'NEWS', icon: 'images', component: ListPage },
-        //         { title: 'FAVORITES', icon: 'attach', component: FavoritesPage },
-        //         { title: 'SETTINGS', icon: 'settings', component: SettingsPage },
-        //         { title: 'ABOUT', icon: 'alert', component: AboutPage },
-        //     ];
-        //   });
     }
 
     initializeApp() {
@@ -68,47 +61,49 @@ export class AppComponent {
         this.nav.setRoot(page.component);
     }
 
-    private checkInStorage(item, path) {
+    private checkInStorage(storageName, storagePath) {
         this.storage.ready().then(() => {
-            this.storage.get(item).then((data) => {
-                console.log(item, data);
-                if (data) {
+            this.storage.get(storageName).then((storageData) => {
+                console.log(storageName, storageData);
+                if (storageData) {
                     // this.storage.clear();
+                    this.transferService.putData(storageData, storageName);
                 } else {
-                    this.loadFromJSON(item, path);
+                    this.loadFromJSON(storageName, storagePath);
                 }
             });
         });
     }
-    private loadFromJSON(item, path) {
-        this.http.get(path)
+    private loadFromJSON(storageName, storagePath) {
+        this.http.get(storagePath)
             .map(res => res.json())
-            .subscribe(data => {
-                if (data) {
-                    const items = [];
-                    if (item == "favorites" || item == "news") {
-                        for (let i = 0; i < data.length; i++) {
-                            items.push({
-                                title: data[i].title,
-                                icon: data[i].icon,
-                                creationDate: data[i].creationDate,
+            .subscribe(jsonData => {
+                if (jsonData) {
+                    const storageData = [];
+                    if (storageName == "favorites" || storageName == "news") {
+                        for (let i = 0; i < jsonData.length; i++) {
+                            storageData.push({
+                                title: jsonData[i].title,
+                                icon: jsonData[i].icon,
+                                creationDate: jsonData[i].creationDate,
                                 formattedDate: '',
-                                author: data[i].author,
-                                content: data[i].content,
+                                author: jsonData[i].author,
+                                content: jsonData[i].content,
                             });
                         }
-                        items.forEach((item) => {
+                        storageData.forEach((item) => {
                             item.formattedDate = this.dateFormatterService.formatDate(item.creationDate);
                         });
-                    } else if (item == "icons") {
-                        for (let i = 0; i < data.length; i++) {
-                            items.push({
-                                icon: data[i].icon,
+                    } else if (storageName == "icons") {
+                        for (let i = 0; i < jsonData.length; i++) {
+                            storageData.push({
+                                icon: jsonData[i].icon,
                             });
                         }
                     }
                     this.storage.ready().then(() => {
-                        this.storage.set(item, items);
+                        this.storage.set(storageName, storageData);
+                        this.transferService.putData(storageData, storageName);
                     });
                 }
             });

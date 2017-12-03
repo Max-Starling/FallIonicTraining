@@ -25,11 +25,11 @@ export class FavoritesPage {
     private data: any;
     private searchValue: string;
     constructor(public navCtrl: NavController,
-        public navParams: NavParams,
-        private appControl: App,
-        private http: Http,
-        private storage: Storage,
-        private transferService: SubjectTransferService) {
+                public navParams: NavParams,
+                private appControl: App,
+                private http: Http,
+                private storage: Storage,
+                private transferService: SubjectTransferService) {
         this.showingItems = [];
         transferService.getData().subscribe((data) => {
             if (data.type == "favorites") {
@@ -38,12 +38,10 @@ export class FavoritesPage {
             }
         });
         this.storage.ready().then(() => {
-            // console.log('qqq')
             this.storage.get('favorites').then((data) => {
                 if (data) {
                     this.showingItems = data;
                     this.storingItems = this.showingItems;
-                    console.log('if');
                 }
             });
         });

@@ -25,19 +25,24 @@ export class ListPage {
     private storingItems: any;
     private news: any;
     private searchValue: string;
-    constructor(public navCtrl: NavController, public navParams: NavParams, private appControl: App, private http: Http, private storage: Storage, private transferService: SubjectTransferService, private dateFormatterService: DateFormatterService) {
+    constructor(private navCtrl: NavController,
+                private navParams: NavParams,
+                private appControl: App,
+                private http: Http,
+                private storage: Storage,
+                private transferService: SubjectTransferService,
+                private dateFormatterService: DateFormatterService) {
         this.showingItems = [];
+        transferService.getData().subscribe((data) => {
+            if (data.type == "news") {
+                this.showingItems = data.options;
+                this.storingItems = this.showingItems;
+            }
+        });
         this.storage.ready().then(() => {
             this.storage.get('news').then((data) => {
                 if (data) {
                     this.showingItems = data;
-                    this.storingItems = this.showingItems;
-                    console.log('if');
-                }
-            });
-            transferService.getData().subscribe((data) => {
-                if (data.type == "news") {
-                    this.showingItems = data.options;
                     this.storingItems = this.showingItems;
                 }
             });
