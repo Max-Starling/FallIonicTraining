@@ -28,6 +28,7 @@ export class AddListItemPage {
         author: string,
         content: string,
     };
+    private isSelected: boolean;
     constructor(private navCtrl: NavController,
         private modalCtrl: ModalController,
         private storage: Storage,
@@ -43,12 +44,14 @@ export class AddListItemPage {
             this.contentValue = this.navParams.data.content;
             this.iconValue = this.navParams.data.icon;
         }
+        this.isSelected = false;
     }
     private presentSelectIcon() {
         let selectIconModal = this.modalCtrl.create(SelectIconComponent);
         selectIconModal.onDidDismiss(data => {
             if (data) {
                 this.iconValue = data;
+                this.isSelected = true;
             }
         });
         selectIconModal.present();
