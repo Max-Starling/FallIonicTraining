@@ -10,15 +10,15 @@ import { TranslateService } from '@ngx-translate/core';
     templateUrl: 'list-item.html',
 })
 export class ListItemPage {
-    private itemTitle: any;
-    private item: any;
-    private isFavorite: boolean;
-    constructor(private navParams: NavParams,
-        private storage: Storage,
-        private transferService: SubjectTransferService,
-        private navCtrl: NavController,
-        private alertCtrl: AlertController,
-        private translate: TranslateService) {
+    public itemTitle: any;
+    public item: any;
+    public isFavorite: boolean;
+    constructor(public navParams: NavParams,
+        public storage: Storage,
+        public transferService: SubjectTransferService,
+        public navCtrl: NavController,
+        public alertCtrl: AlertController,
+        public translate: TranslateService) {
         this.item = {
             'title': this.navParams.get('title'),
             'icon': this.navParams.get('icon'),
@@ -30,7 +30,7 @@ export class ListItemPage {
         this.checkIsFavorite();
     }
 
-    private favButtonTapped(event) {
+    public favButtonTapped(event) {
         this.storage.ready().then(() => {
             this.storage.get('favorites').then((favoritesData) => {
                 favoritesData.forEach((element, index) => {
@@ -48,7 +48,7 @@ export class ListItemPage {
             });
         });
     }
-    private checkIsFavorite() {
+    public checkIsFavorite() {
         this.storage.ready().then(() => {
             this.storage.get('favorites').then((favoritesData) => {
                 favoritesData.forEach((element, index) => {
@@ -62,7 +62,7 @@ export class ListItemPage {
             });
         });
     }
-    private editButtonTapped(event) {
+    public editButtonTapped(event) {
         if (this.checkAuthor(this.item.author)) {
             this.navCtrl.push(AddListItemPage, {
                 purpose: 'edit',
@@ -77,18 +77,18 @@ export class ListItemPage {
             this.presentAlert();
         }
     }
-    private deleteButtonTapped() {
+    public deleteButtonTapped() {
         this.deleteItemIn('news');
         this.deleteItemIn('favorites');
         this.navCtrl.popToRoot();
     }
-    private checkAuthor(articleAuthor) {
+    public checkAuthor(articleAuthor) {
         if (articleAuthor != 'You') {
             return false;
         }
         return true;
     }
-    private presentAlert() {
+    public presentAlert() {
         this.translate.get('NOT_YOURS_ALERT_TITLE').subscribe((title: string) => {
             this.translate.get('NOT_YOURS_ALERT_SUBTITLE').subscribe((subtitle: string) => {
                 this.translate.get('NOT_YOURS_ALERT_BUTTON').subscribe((button: string) => {
@@ -102,7 +102,7 @@ export class ListItemPage {
             });
         });
     }
-    private presentConfirm() {
+    public presentConfirm() {
         if (this.checkAuthor(this.item.author)) {
             this.translate.get('CONFIRM_ALERT_TITLE').subscribe((title: string) => {
                 this.translate.get('DELETE_ALERT_SUBTITLE').subscribe((subtitle: string) => {
@@ -132,7 +132,7 @@ export class ListItemPage {
             this.presentAlert();
         }
     }
-    private addItemIn(storageName) {
+    public addItemIn(storageName) {
         this.storage.ready().then(() => {
             this.storage.get(storageName).then((storageData) => {
                 storageData.push(this.item);
@@ -143,7 +143,7 @@ export class ListItemPage {
             })
         });
     }
-    private deleteItemIn(storageName) {
+    public deleteItemIn(storageName) {
         this.storage.ready().then(() => {
             this.storage.get(storageName).then((storageData) => {
                 storageData.forEach((element, index) => {

@@ -14,7 +14,7 @@ import { DateFormatterService } from '../../services/date-formatter.service';
 })
 // tslint:disable:ter-indent
 export class ListPage {
-    private showingItems: Array<{
+    public showingItems: Array<{
         title: string,
         icon: string,
         creationDate: string,
@@ -29,19 +29,20 @@ export class ListPage {
         author: string,
         content: string,
     }>;
-    private storingItems: any;
-    private news: any;
-    private searchValue: string;
-    constructor(private navCtrl: NavController,
-                private navParams: NavParams,
-                private appControl: App,
-                private http: Http,
-                private storage: Storage,
-                private transferService: SubjectTransferService,
-                private dateFormatterService: DateFormatterService) {
+    public storingItems: any;
+    public news: any;
+    public searchValue: string;
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public appControl: App,
+                public http: Http,
+                public storage: Storage,
+                public transferService: SubjectTransferService,
+                public dateFormatterService: DateFormatterService) {
         this.showingItems = [];
         transferService.getData().subscribe((data) => {
             if (data.type == "news") {
+                console.log(data.options);
                 this.showingItems = data.options;
                 this.storingItems = this.showingItems;
             }
@@ -55,7 +56,7 @@ export class ListPage {
             });
         });
     }
-    private itemTapped(event, i) {
+    public itemTapped(event, i) {
         this.navCtrl.push(ListItemPage, {
             title: i.title,
             icon: i.icon,
@@ -65,10 +66,10 @@ export class ListPage {
             content: i.content,
         });
     }
-    private addButtonTapped(event) {
+    public addButtonTapped(event) {
         this.navCtrl.push(AddListItemPage);
     }
-    private onSearchInput(event) {
+    public onSearchInput(event) {
         this.showingItems = [];
         const searchValue = this.searchValue;
         const showingItems = this.showingItems;
@@ -78,7 +79,7 @@ export class ListPage {
             }
         });
     }
-    private onSearchCancel(event) {
+    public onSearchCancel(event) {
         this.showingItems = this.storingItems;
     }
 }

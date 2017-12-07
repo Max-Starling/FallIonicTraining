@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map'
 })
 // tslint:disable:ter-indent
 export class FavoritesPage {
-    private showingItems: Array<{
+    public showingItems: Array<{
         title: string,
         summary: string,
         icon: string,
@@ -28,15 +28,15 @@ export class FavoritesPage {
         author: string,
         content: string,
     }>;
-    private storingItems: any;
-    private data: any;
-    private searchValue: string;
+    public storingItems: any;
+    public data: any;
+    public searchValue: string;
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
-                private appControl: App,
-                private http: Http,
-                private storage: Storage,
-                private transferService: SubjectTransferService) {
+                public appControl: App,
+                public http: Http,
+                public storage: Storage,
+                public transferService: SubjectTransferService) {
         this.showingItems = [];
         transferService.getData().subscribe((data) => {
             if (data.type == "favorites") {
@@ -53,7 +53,7 @@ export class FavoritesPage {
             });
         });
     }
-    private itemTapped(event, i) {
+    public itemTapped(event, i) {
         console.log(i.creationDate);
         this.navCtrl.push(ListItemPage, {
             title: i.title,
@@ -64,7 +64,7 @@ export class FavoritesPage {
             content: i.content,
         });
     }
-    private onSearchInput(event) {
+    public onSearchInput(event) {
         this.showingItems = [];
         const searchValue = this.searchValue;
         const showingItems = this.showingItems;
@@ -74,7 +74,7 @@ export class FavoritesPage {
             }
         });
     }
-    private onSearchCancel(event) {
+    public onSearchCancel(event) {
         this.showingItems = this.storingItems;
     }
 }

@@ -18,20 +18,20 @@ import { SubjectTransferService } from '../services/subject-transfer.service';
 // tslint:disable:ter-indent
 export class AppComponent {
     @ViewChild(Nav) nav: Nav;
-    private rootPage: any = ListPage;
-    private newsTitle: string;
-    private favoritesTitle: string;
-    private settingsTitle: string;
-    private aboutTitle: string;
-    private pages: Array<{ title: string, icon: string, component: any }>;
-    constructor(private platform: Platform,
-                private statusBar: StatusBar,
-                private splashScreen: SplashScreen,
-                private translateService: TranslateService,
-                private dateFormatterService: DateFormatterService,
-                private storage: Storage,
-                private http: Http,
-                private transferService: SubjectTransferService) {
+    public rootPage: any = ListPage;
+    public newsTitle: string;
+    public favoritesTitle: string;
+    public settingsTitle: string;
+    public aboutTitle: string;
+    public pages: Array<{ title: string, icon: string, component: any }>;
+    constructor(public platform: Platform,
+                public statusBar: StatusBar,
+                public splashScreen: SplashScreen,
+                public translateService: TranslateService,
+                public dateFormatterService: DateFormatterService,
+                public storage: Storage,
+                public http: Http,
+                public transferService: SubjectTransferService) {
         this.initializeApp();
         this.translateService.setDefaultLang('en');
         this.translateService.use('en')
@@ -41,9 +41,9 @@ export class AppComponent {
             { title: 'SETTINGS', icon: 'settings', component: SettingsPage },
             { title: 'ABOUT', icon: 'alert', component: AboutPage },
         ];
-        this.checkInStorage('news', 'assets/news.json');
-        this.checkInStorage('favorites', 'assets/favorites.json');
-        this.checkInStorage('icons', 'assets/icons.json');
+        this.checkInStorage('news', './assets/news.json');
+        this.checkInStorage('favorites', './assets/favorites.json');
+        this.checkInStorage('icons', './assets/icons.json');
     }
 
     initializeApp() {
@@ -61,7 +61,7 @@ export class AppComponent {
         this.nav.setRoot(page.component);
     }
 
-    private checkInStorage(storageName, storagePath) {
+    public checkInStorage(storageName, storagePath) {
         this.storage.ready().then(() => {
             this.storage.get(storageName).then((storageData) => {
                 console.log(storageName, storageData);
@@ -74,7 +74,7 @@ export class AppComponent {
             });
         });
     }
-    private loadFromJSON(storageName, storagePath) {
+    public loadFromJSON(storageName, storagePath) {
         this.http.get(storagePath)
             .map(res => res.json())
             .subscribe(jsonData => {

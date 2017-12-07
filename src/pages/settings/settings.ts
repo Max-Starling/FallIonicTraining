@@ -8,14 +8,14 @@ import { TranslateService } from '@ngx-translate/core';
 })
 // tslint:disable:ter-indent
 export class SettingsPage {
-    private checkedArray: Array<string>;
-    private languages: Array<{
+    public checkedArray: Array<string>;
+    public languages: Array<{
         id: string,
         name: string,
         checked: boolean,
         isWorking: boolean
     }>
-    constructor(private navCtrl: NavController, private alertCtrl: AlertController, private translateService: TranslateService) {
+    constructor(public navCtrl: NavController, public alertCtrl: AlertController, public translateService: TranslateService) {
         this.languages = [
             { id: 'en', name: 'ENGLISH', checked: false, isWorking: true },
             { id: 'ru', name: 'RUSSIAN', checked: false, isWorking: true },
@@ -30,7 +30,7 @@ export class SettingsPage {
               });
         }
     }
-    private setLanguage(event, language) {
+    public setLanguage(event, language) {
         if (language.isWorking) {
             this.translateService.use(language.id);
             this.languages.forEach((item, i) =>{
@@ -42,7 +42,7 @@ export class SettingsPage {
             this.presentAlert();
         }
     }
-    private presentAlert() {
+    public presentAlert() {
         let alert = this.alertCtrl.create({
             title: 'Oops!',
             subTitle: 'Sorry, this function is not available yet.',

@@ -28,7 +28,8 @@
     "@ngx-translate/core": "^9.0.1",
     "@ngx-translate/http-loader": "^2.0.0",
     "cordova": "^7.1.0",
-    "cordova-android": "~6.3.0",
+    "cordova-android": "^6.3.0",
+    "cordova-browser": "~5.0.1",
     "cordova-plugin-add-swift-support": "^1.7.0",
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-ionic": "^2.0.3",
@@ -56,12 +57,15 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic": {
         "APP_ID": "ccdcf8f7",
-        "CHANNEL_NAME": "Master",
-        "UPDATE_METHOD": "background",
+        "CHANNEL_NAME": "master",
+        "UPDATE_METHOD": "auto",
         "UPDATE_API": "https://api.ionicjs.com",
         "MAX_STORE": "2"
       }
     },
-    "platforms": []
+    "platforms": [
+      "browser",
+      "android"
+    ]
   }
 }

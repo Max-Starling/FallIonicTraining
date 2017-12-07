@@ -15,12 +15,12 @@ import { TranslateService } from '@ngx-translate/core';
 })
 // tslint:disable:ter-indent
 export class AddListItemPage {
-    private titleValue: string;
-    private contentValue: string;
-    private iconValue: string;
-    private icons: Array<string>;
-    private news: any;
-    private newItem: {
+    public titleValue: string;
+    public contentValue: string;
+    public iconValue: string;
+    public icons: Array<string>;
+    public news: any;
+    public newItem: {
         title: string,
         icon: string,
         creationDate: string,
@@ -28,15 +28,15 @@ export class AddListItemPage {
         author: string,
         content: string,
     };
-    private isSelected: boolean;
-    constructor(private navCtrl: NavController,
-                private modalCtrl: ModalController,
-                private storage: Storage,
-                private transferService: SubjectTransferService,
-                private alertCtrl: AlertController,
-                private dateFormatterService: DateFormatterService,
-                private navParams: NavParams,
-                private translate: TranslateService) {
+    public isSelected: boolean;
+    constructor(public navCtrl: NavController,
+                public modalCtrl: ModalController,
+                public storage: Storage,
+                public transferService: SubjectTransferService,
+                public alertCtrl: AlertController,
+                public dateFormatterService: DateFormatterService,
+                public navParams: NavParams,
+                public translate: TranslateService) {
         this.iconValue = "CHOOSE_ICON";
         if (this.navParams.get('purpose') === "edit") {
             this.titleValue = this.navParams.data.title;
@@ -45,7 +45,7 @@ export class AddListItemPage {
         }
         this.isSelected = false;
     }
-    private presentSelectIcon() {
+    public presentSelectIcon() {
         let selectIconModal = this.modalCtrl.create(SelectIconComponent);
         selectIconModal.onDidDismiss(data => {
             if (data) {
@@ -55,7 +55,7 @@ export class AddListItemPage {
         });
         selectIconModal.present();
     }
-    private saveButtonTapped() {
+    public saveButtonTapped() {
         if (this.navParams.get('purpose') === "edit") {
             this.editArticleIn('news');
             this.editArticleIn('favorites');
@@ -64,7 +64,7 @@ export class AddListItemPage {
         }
 
     }
-    private checkDateMatches(array): boolean {
+    public checkDateMatches(array): boolean {
         let state = false;
         array.forEach((item, i) => {
             if (item.date == this.newItem.creationDate) {
@@ -73,7 +73,7 @@ export class AddListItemPage {
         });
         return state;
     }
-    private addArticleIn(storageName) {
+    public addArticleIn(storageName) {
         this.storage.ready().then(() => {
             this.storage.get(storageName).then((storageData) => {
                 let date;
@@ -99,7 +99,7 @@ export class AddListItemPage {
             })
         });
     }
-    private editArticleIn(storageName) {
+    public editArticleIn(storageName) {
         this.storage.ready().then(() => {
             this.storage.get(storageName).then((storageData) => {
                 if (storageData) {
@@ -119,7 +119,7 @@ export class AddListItemPage {
             });
         });
     }
-    private presentConfirm() {
+    public presentConfirm() {
         this.translate.get('CONFIRM_ALERT_TITLE').subscribe((title: string) => {
             this.translate.get('SAVE_ALERT_SUBTITLE').subscribe((subtitle: string) => {
                 this.translate.get('YES_BUTTON').subscribe((buttonYes: string) => {

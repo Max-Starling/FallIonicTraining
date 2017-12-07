@@ -1,8 +1,15 @@
 {
-  "name": "FallTraining",
-  "app_id": "ccdcf8f7",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {"platforms": ["android"]},"dependencies": {"cordova-android": "~6.3.0"}
-  }
+    "name": "FallTraining",
+    "app_id": "ccdcf8f7",
+    "type": "ionic-angular",
+    "integrations": {
+        "cordova": {
+            "platforms": [
+                "android"
+            ]
+        },
+        "dependencies": {
+            "cordova-android": "~6.3.0"
+        }
+    }
 }

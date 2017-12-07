@@ -17,7 +17,7 @@
 </ion-header>
 
 <ion-content>
-    <ion-searchbar [(ngModel)]="searchValue" [placeholder]="'SEARCH_BY_TITLE' | translate" [showCancelButton]="shouldShowCancel"
+    <ion-searchbar [(ngModel)]="searchValue" [placeholder]="'SEARCH_BY_TITLE' | translate"
         (ionInput)="onSearchInput($event)" (ionCancel)="onSearchCancel($event)" margin-bottom>
     </ion-searchbar>
     <ion-list>

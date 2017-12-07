@@ -9,13 +9,13 @@ import { SubjectTransferService } from '../../services/subject-transfer.service'
 })
 // tslint:disable:ter-indent
 export class SelectIconComponent {
-    private showingIcons: Array<{icon: string}>;
-    private storingIcons: Array<{icon: string}>;
-    private searchValue: string;
-    constructor(private viewCtrl: ViewController,
-                private navCtrl: NavController,
-                private storage: Storage,
-                private transferService: SubjectTransferService) {
+    public showingIcons: Array<{icon: string}>;
+    public storingIcons: Array<{icon: string}>;
+    public searchValue: string;
+    constructor(public viewCtrl: ViewController,
+                public navCtrl: NavController,
+                public storage: Storage,
+                public transferService: SubjectTransferService) {
                     this.showingIcons = [];
                     this.storage.ready().then(() => {
                         this.storage.get('icons').then((iconsData) => {
@@ -32,11 +32,11 @@ export class SelectIconComponent {
                     });
 
     }
-    private makeChoice(item) {
+    public makeChoice(item) {
         this.viewCtrl.dismiss(item.icon);
     }
 
-    private onSearchInput(event) {
+    public onSearchInput(event) {
         this.showingIcons = [];
         const searchValue = this.searchValue;
         const icons = this.showingIcons;
@@ -46,7 +46,7 @@ export class SelectIconComponent {
             }
         });
     }
-    private onSearchCancel(event) {
+    public onSearchCancel(event) {
         this.showingIcons = [];
         const searchValue = this.searchValue;
         const icons = this.showingIcons;
